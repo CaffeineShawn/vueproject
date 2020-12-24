@@ -26,13 +26,11 @@ module.exports = {
   			name: '[name].[ext]'
   		}
   	},
-  	module: {
-  		rules: [{
-  			test: /\.css$/,
-  			use: ['style-loader', 'css-loader']
-  		}]
-  	},
-  	]
+    {
+    test: /\.css$/,
+    use: ['style-loader', 'css-loader']
+    }
+    ]
   },
   plugins: [
     // 请确保引入这个插件！
@@ -43,4 +41,4 @@ module.exports = {
     		'vue': 'vue/dist/vue.js'
     	}
     },
-}
+  }
