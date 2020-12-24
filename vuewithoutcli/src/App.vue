@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import './assets/styles/test.css'
+//import './assets/styles/test.css'
 export default {
   name: 'App'
 }
