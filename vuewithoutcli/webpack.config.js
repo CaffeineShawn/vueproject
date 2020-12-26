@@ -5,6 +5,8 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 //引入 自动生成Html插件
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+//引入clean-webpack-plugin(提取出 CleanWebpackPlugin 的构造函数)
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
   // 打包的入口
   entry: './src/main.js',
@@ -42,7 +44,8 @@ module.exports = {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template:'./index.html'
-    })
+    }),
+    new CleanWebpackPlugin()
     ],
     resolve: {
     	alias: {
