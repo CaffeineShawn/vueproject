@@ -3,7 +3,8 @@ const path = require('path')
 
 // 引入vue-loader插件
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-
+//引入 自动生成Html插件
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   // 打包的入口
   entry: './src/main.js',
@@ -38,11 +39,15 @@ module.exports = {
   },
   plugins: [
     // 请确保引入这个插件！
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template:'./index.html'
+    })
     ],
     resolve: {
     	alias: {
     		'vue': 'vue/dist/vue.js'
     	}
     },
+
   }
