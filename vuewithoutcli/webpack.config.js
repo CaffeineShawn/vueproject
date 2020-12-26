@@ -8,12 +8,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 //引入clean-webpack-plugin(提取出 CleanWebpackPlugin 的构造函数)
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
+  mode: 'development',
   // 打包的入口
   entry: './src/main.js',
   // 打包的出口
   output: {
   	filename: 'bundle.js',
   	path: path.resolve(__dirname, 'dist')
+  },
+  devServer:{
+    contentBase:'./dist',
+    open:true
   },
   // 打包规则
   module: {
