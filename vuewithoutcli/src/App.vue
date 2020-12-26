@@ -3,7 +3,7 @@
 </template>
 
 <script>
-//import './assets/styles/test.css'
+import './assets/styles/global.stylus'
 export default {
   name: 'App'
 }
