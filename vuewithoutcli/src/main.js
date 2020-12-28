@@ -17,3 +17,5 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+ const arr = [1,2,3].map(item=>item+1)
+ console.log(arr);
