@@ -7,6 +7,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 //引入clean-webpack-plugin(提取出 CleanWebpackPlugin 的构造函数)
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+//引入热模块替换
+const webpack = require('webpack')
 module.exports = {
   mode: 'development',
   // 打包的入口
@@ -18,7 +20,8 @@ module.exports = {
   },
   devServer:{
     contentBase:'./dist',
-    open:true
+    open:true,
+    hot:true
   },
   // 打包规则
   module: {
@@ -50,12 +53,15 @@ module.exports = {
     new HtmlWebpackPlugin({
       template:'./index.html'
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin()
     ],
+
     resolve: {
     	alias: {
     		'vue': 'vue/dist/vue.js'
     	}
     },
+
 
   }
