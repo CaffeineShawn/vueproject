@@ -11,7 +11,8 @@ const devConfig = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
-    ]
+    ],
+    devtool:'inline-source-map'
   }
 
   module.exports = merge(baseConfig, devConfig)
