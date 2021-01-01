@@ -23,7 +23,6 @@
     "postcss-loader": "^4.1.0",
     "style-loader": "^2.0.0",
     "stylus": "^0.54.8",
-    "stylus-loader": "^4.3.1",
     "vue-loader": "^15.9.6",
     "vue-template-compiler": "^2.6.12",
     "webpack": "^5.11.0",
@@ -33,6 +32,7 @@
   },
   "dependencies": {
     "file-loader": "^6.2.0",
+    "stylus-loader": "^3.0.2",
     "vue": "^2.6.12"
   }
 }
