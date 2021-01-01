@@ -1,8 +1,4 @@
-// 从vue包中导入Vue对象
-import Vue from 'vue'
 
-// 注册App组件对象
-import App from './App.vue'
 //import './assets/styles/test.css'
 // 创建Vue根实例
 /*将这个Vue实例挂载到#app(DOM元素)上
@@ -12,10 +8,25 @@ template：使用上述同名组件标签
 名为App的组件=>App对象=>App.vue=>template内容
 
 */
+
+// 	Vue.component('button-counter', {
+//   data: function () {
+//     return {
+//       count: 0
+//     }
+//   },
+//   template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+// })
+// 从vue包中导入Vue对象
+import Vue from 'vue'
+
+// 注册App组件对象
+import App from './App.vue'
 new Vue({
   el: '#app',
-  components: { App },
-  template: '<App/>'
+  components: {
+  	App
+   },
+  template: '<App></App>'
 })
- const arr = [1,2,3].map(item=>item+1)
- console.log(arr);
+console.log(App);

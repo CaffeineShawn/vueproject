@@ -14,7 +14,7 @@ module.exports = {
   // 打包的出口
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, '..', '/dist')
+    path: path.resolve(__dirname, '../dist')
   },
   // 打包规则
   module: {
@@ -64,7 +64,8 @@ module.exports = {
       alias: {
         'vue': 'vue/dist/vue.js',
          '@': path.resolve(__dirname, '../src'),
-    'styles': path.resolve(__dirname, '../src/assets/styles')
+    'styles': path.resolve(__dirname, '../src/assets/styles'),
+    'images':path.resolve(__dirname,'../src/assets/images'),
       }
     },
 
