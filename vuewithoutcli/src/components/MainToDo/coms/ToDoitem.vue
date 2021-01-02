@@ -14,6 +14,7 @@
 
 <style lang="stylus" type="text/css">
 @import '~styles/color.stylus'
+@import '~styles/mixins.styl'
 	.todo-item{
 	display: flex;
 	justify-content: space-between;
@@ -40,8 +41,7 @@
 		/*appearance:none*/
 		width: 50px
 		height: 30px
-		border: none
-		outline: none
+		cleanDefalutStyle()
 		text-align:center;
 	}
 	input:checked{
@@ -55,12 +55,12 @@
 		flex: 1;
 		/*flex:1;指子元素自动伸缩 填充满整个元素 并且会根据其他的兄弟按flex：1、2、3比例进行伸缩 这里把todo内容拉到最长是合理的*/
 		transition:color 0.4s;
+		/*过渡效果*/
 	}
 	button{
 		width:40px;
 		background-color: transparent;
-		appearance:none;
-		border:none;
+		cleanDefalutStyle()
 		outline: none;
 		cursor: pointer;/*小手指*/
 	}
