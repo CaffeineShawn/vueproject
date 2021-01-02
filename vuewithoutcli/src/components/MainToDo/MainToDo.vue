@@ -27,7 +27,7 @@
 			this.todoData.unshift({
 				id:0,
 				content:this.content,
-				completed:true,
+				completed:false,
 			})
 				// 3:将源数据清空
 				this.content = '';
