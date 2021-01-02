@@ -2,10 +2,10 @@
 	<div class="ToDoinfo">
 		<span class="left">1 item left</span>
 		<div class="tabs">
-			<a v-for="(item,index) in states">{{item}}</a>
+			<a class="btn border" v-for="(item,index) in states">{{item}}</a>
 
 		</div>
-		<button class="clear">Clear Completed</button>
+		<button class="btn info">Clear Completed</button>
 	</div>
 </template>
 
@@ -38,7 +38,8 @@
 		display: flex;
 		justify-content: space-around;
 		width: 200px;
-		a{
+	}
+	.border.btn{
 			beforeBtn()
 			transition-duration: 0.5s;
 			&.actived{
@@ -46,8 +47,7 @@
 			}
 		}
 
-	}
-	.clear{
+	.btn.info{
 		infoBtn()
 		cleanDefalutStyle();
 	}
