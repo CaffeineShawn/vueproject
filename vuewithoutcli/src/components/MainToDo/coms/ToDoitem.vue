@@ -42,7 +42,6 @@
 		width: 50px
 		height: 30px
 		cleanDefalutStyle()
-		text-align:center;
 	}
 	input:checked{
 		/*content: url('images/ok.jpg');*/

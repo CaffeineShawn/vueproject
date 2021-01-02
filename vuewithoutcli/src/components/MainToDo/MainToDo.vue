@@ -1,8 +1,7 @@
 <template>
 	<div class="main-to-do">
 		<input class="add-to-do" type="text" placeholder="what to do?" autofocus />
-		<ToDoitem></ToDoitem>
-		<!-- template里使用自定义组件需要在export中注册组件 -->
+		<ToDoitem v-for="(item,index) in todoData":key="index" ></ToDoitem>
 	</div>
 </template>
 
@@ -10,6 +9,21 @@
 	import ToDoitem from '/src/components/MainToDo/coms/ToDoitem.vue'
 	export default {
 		name:'MainToDo',
+		data(){
+			return{
+				todoData:[{
+				id:0,
+				content:'test',
+				completed:false
+			},
+			{
+				id:1,
+				content:'test2',
+				completed:false
+			}]
+			}
+			
+		},
 		components:{
 			ToDoitem
 		}
