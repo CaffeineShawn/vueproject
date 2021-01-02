@@ -1,5 +1,5 @@
 <template>
-	<div class="todo-item">
+	<div :class="['todo-item',todo.completed?'completed': '']">
 		<input type="checkbox"/>
 		<label>{{todo.content}}</label>
 		<button></button>

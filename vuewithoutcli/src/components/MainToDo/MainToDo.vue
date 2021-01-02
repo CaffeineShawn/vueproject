@@ -13,16 +13,7 @@
 		name:'MainToDo',
 		data(){
 			return{
-				todoData:[{
-				id:0,
-				content:'test',
-				completed:false
-			},
-			{
-				id:1,
-				content:'test2',
-				completed:false
-			}],
+				todoData:[],
 				content:''
 			}
 			
@@ -36,7 +27,7 @@
 			this.todoData.unshift({
 				id:0,
 				content:this.content,
-				completed:false,
+				completed:true,
 			})
 				// 3:将源数据清空
 				this.content = '';
