@@ -1,14 +1,15 @@
 <template>
 	<div class="main-to-do">
-		<input class="add-to-do" type="text" placeholder="what to do?" autofocus 
+		<input class="add-to-do" type="text" placeholder="what to do?" autofocus
 		@keyup.enter="addTodo" v-model = "content" />
-		<ToDoitem v-for="(item,index) in todoData":key="index" :todo="item"
+		<ToDoitem v-for="(item,index) in todoData":key="index" :todo="item" @del="handleDeleteItem"
 		 ></ToDoitem>
 	</div>
 </template>
 
 <script type="text/javascript">
 	import ToDoitem from '/src/components/MainToDo/coms/ToDoitem.vue'
+		let id = 0;
 	export default {
 		name:'MainToDo',
 		data(){
@@ -25,12 +26,19 @@
 				if(this.content =='') return 
 				// 2:将值插入到数组头部
 			this.todoData.unshift({
-				id:0,
+				id:id++,
 				content:this.content,
 				completed:false,
 			})
 				// 3:将源数据清空
 				this.content = '';
+			},
+			handleDeleteItem(id){
+				//this.todoData.splice(id,1)
+				// 这是删除数组的普通做法
+				// 但是，会导致删除后新增的元素和下标对不上从而删除失败
+				this.todoData.splice(
+					this.todoData.findIndex(item => item.id ===id),1)
 			}
 		},
 		components:{

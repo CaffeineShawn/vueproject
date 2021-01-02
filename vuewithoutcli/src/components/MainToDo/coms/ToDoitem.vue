@@ -2,15 +2,22 @@
 	<div :class="['todo-item',todo.completed?'completed': '']">
 		<input type="checkbox" v-model = 'todo.completed'/>
 		<label>{{todo.content}}</label>
-		<button></button>
+		<button @click="delItem"></button>
 	</div>
 </template>
 
 <script >
+
 	export default{
 		name:'ToDoitem',
 		props:{
 			todo:Object
+		},
+		methods: {
+			delItem() {
+				this.$emit('del', this.todo.id);
+				// 提供监听 并传值
+			}
 		}
 	}
 </script>
@@ -18,37 +25,37 @@
 <style lang="stylus" type="text/css">
 @import '~styles/color.stylus'
 @import '~styles/mixins.styl'
-	.todo-item{
+.todo-item{
 	display: flex;
 	justify-content: space-between;
 	padding:10px;
 	font-size: 24px;
 
-		&:hover{
-			button:before{
-				/*注：这里after和before相同 都是放在按钮中心*/
-				content: 'x'
-				font-size 24px
-				color $lightred
-			}
+	&:hover{
+		button:before{
+			/*注：这里after和before相同 都是放在按钮中心*/
+			content: 'x'
+			font-size 24px
+			color $lightred
 		}
 	}
-		&.completed{/*这里指选择自定义类 只要添加这个类就有效果*/
-			/*被划掉的样式*/
-			label{
-				color: #D9D9D9
-				text-decoration:line-through;
-			}
-		}
-	input{
-		/*appearance:none*/
-		width: 50px
-		height: 30px
-		cleanDefalutStyle()
+}
+&.completed{/*这里指选择自定义类 只要添加这个类就有效果*/
+	/*被划掉的样式*/
+	label{
+		color: #D9D9D9
+		text-decoration:line-through;
 	}
-	input:checked{
-		/*content: url('images/ok.jpg');*/
-	}
+}
+input{
+	/*appearance:none*/
+	width: 50px
+	height: 30px
+	cleanDefalutStyle()
+}
+input:checked{
+	/*content: url('images/ok.jpg');*/
+}
 
 
 	/*	&:checked:after
