@@ -2,7 +2,7 @@
 	<div class="main-to-do">
 		<input class="add-to-do" type="text" placeholder="what to do?" autofocus 
 		@keyup.enter="addTodo" v-model = "content" />
-		<ToDoitem v-for="(item,index) in todoData":key="index"
+		<ToDoitem v-for="(item,index) in todoData":key="index" :todo="item"
 		 ></ToDoitem>
 	</div>
 </template>
@@ -35,7 +35,7 @@
 				// 2:将值插入到数组头部
 			this.todoData.unshift({
 				id:0,
-				content:'test3',
+				content:this.content,
 				completed:false,
 			})
 				// 3:将源数据清空

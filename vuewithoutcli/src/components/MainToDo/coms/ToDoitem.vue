@@ -1,14 +1,17 @@
 <template>
 	<div class="todo-item">
 		<input type="checkbox"/>
-		<label>todo1</label>
+		<label>{{todo.content}}</label>
 		<button></button>
 	</div>
 </template>
 
 <script >
 	export default{
-		name:'ToDoitem'
+		name:'ToDoitem',
+		props:{
+			todo:Object
+		}
 	}
 </script>
 
