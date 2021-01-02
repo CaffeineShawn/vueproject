@@ -1,7 +1,9 @@
 <template>
 	<div class="main-to-do">
-		<input class="add-to-do" type="text" placeholder="what to do?" autofocus />
-		<ToDoitem v-for="(item,index) in todoData":key="index" ></ToDoitem>
+		<input class="add-to-do" type="text" placeholder="what to do?" autofocus 
+		@keyup.enter="addTodo" v-model = "content" />
+		<ToDoitem v-for="(item,index) in todoData":key="index"
+		 ></ToDoitem>
 	</div>
 </template>
 
@@ -20,9 +22,25 @@
 				id:1,
 				content:'test2',
 				completed:false
-			}]
+			}],
+				content:''
 			}
 			
+		},
+		methods:{
+			addTodo(){
+				//  1:获取内容 所以先要用v-model绑定数据到data
+				// 因此要在data()搞一个content
+				if(this.content =='') return 
+				// 2:将值插入到数组头部
+			this.todoData.unshift({
+				id:0,
+				content:'test3',
+				completed:false,
+			})
+				// 3:将源数据清空
+				this.content = '';
+			}
 		},
 		components:{
 			ToDoitem
