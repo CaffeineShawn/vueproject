@@ -22,7 +22,7 @@
 	}
 </script>
 
-<style lang="stylus" type="text/css">
+<style lang="stylus" type="text/css" scoped="">
 @import '~styles/color.stylus'
 @import '~styles/mixins.styl'
 .todo-item{

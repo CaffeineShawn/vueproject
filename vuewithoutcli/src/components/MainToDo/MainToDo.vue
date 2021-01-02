@@ -4,12 +4,14 @@
 		@keyup.enter="addTodo" v-model = "content" />
 		<ToDoitem v-for="(item,index) in todoData":key="index" :todo="item" @del="handleDeleteItem"
 		 ></ToDoitem>
+		 <ToDoinfo/>
 	</div>
 </template>
 
 <script type="text/javascript">
 	import ToDoitem from '/src/components/MainToDo/coms/ToDoitem.vue'
 		let id = 0;
+	import ToDoinfo from './coms/ToDoinfo.vue'
 	export default {
 		name:'MainToDo',
 		data(){
@@ -42,7 +44,8 @@
 			}
 		},
 		components:{
-			ToDoitem
+			ToDoitem,
+			ToDoinfo
 		}
 	}
 
