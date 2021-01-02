@@ -39,21 +39,16 @@
 		justify-content: space-around;
 		width: 200px;
 		a{
-			border: 1px solid $lightred
-			padding:0 10px; 
+			beforeBtn()
 			transition-duration: 0.5s;
 			&.actived{
-				background-color: $lightred;
-				color: #fff;
+				afterBtn()
 			}
 		}
 
 	}
 	.clear{
-		padding:0 10px;
-		background-color: $green;
-		border-radius: 5px;
-		color: #fff;
+		infoBtn()
 		cleanDefalutStyle();
 	}
 	

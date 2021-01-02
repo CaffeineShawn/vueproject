@@ -1,3 +1,25 @@
+@import '~styles/color.stylus'
 cleanDefalutStyle()
 	border:none
 	outline:none
+	
+btn(color,ifBorder = false)
+	padding:0 10px
+	border-radius:5px
+	cursor pointer
+	cleanDefalutStyle()
+	
+	if(ifBorder)
+		border 1px solid color
+	else
+		background-color:color
+		color:#fff
+		
+afterBtn()
+	btn($lightred)
+
+beforeBtn()
+	btn($lightred,true)
+	
+infoBtn()
+	btn($green)
