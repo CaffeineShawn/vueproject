@@ -2,6 +2,7 @@
 	<div>
 		<main-header></main-header>
 		<main-to-do></main-to-do>
+		<main-footer></main-footer>
 		<!-- <ComponentA/> -->
 	</div>
 </template>
@@ -20,12 +21,15 @@ var ComponentA = {
 import './assets/styles/global.stylus'
 import MainHeader from './components/MainHeader.vue'
 import MainToDo from './components/MainToDo/MainToDo.vue'
+import MainFooter from './components/MainFooter.vue'
+
 export default {
 	name: 'App',
 	components:{
 			//组件名：组件对象
 			MainHeader,
 			MainToDo,
+			MainFooter,
 			ComponentA
 		}
 
