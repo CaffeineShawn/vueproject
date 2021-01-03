@@ -1,6 +1,6 @@
 <template>
 	<div class="ToDoinfo">
-		<span class="left">1 item left</span>
+		<span class="left">{{total}} item left</span>
 		<div class="tabs">
 			<a class="btn border" v-for="(item,index) in states">{{item}}</a>
 
@@ -12,6 +12,9 @@
 <script>
 	export default{
 		name:'ToDoinfo',
+		props: {
+			total: Number
+		},
 		data(){
 			return{
 				states:['all','active','completed'],
@@ -20,38 +23,38 @@
 	}
 </script>
 
-<style lang="stylus" type="text/css" scoped>
+<style lang="stylus" type="text/css" >
 @import '~styles/color.stylus'
 @import '~styles/mixins.styl'
-	.ToDoinfo{
-		display: flex;
-		justify-content: space-between;
-		font-weight: 400;
-		padding: 5px 10px;/*左右给5 上下给10*/
-		line-height: 30px;
-		border-top: 1px solid $lightgreen;
+.ToDoinfo{
+	display: flex;
+	justify-content: space-between;
+	font-weight: 400;
+	padding: 5px 10px;/*左右给5 上下给10*/
+	line-height: 30px;
+	border-top: 1px solid $lightgreen;
+}
+.left{
+	color: $red;
+}
+.tabs{
+	display: flex;
+	justify-content: space-around;
+	width: 200px;
+}
+.border.btn{
+	beforeBtn()
+	transition-duration: 0.5s;
+	&.actived{
+		afterBtn()
 	}
-	.left{
-		color: $red;
-	}
-	.tabs{
-		display: flex;
-		justify-content: space-around;
-		width: 200px;
-	}
-	.border.btn{
-			beforeBtn()
-			transition-duration: 0.5s;
-			&.actived{
-				afterBtn()
-			}
-		}
+}
 
-	.btn.info{
-		infoBtn()
-		cleanDefalutStyle();
-	}
-	
+.btn.info{
+	infoBtn()
+	cleanDefalutStyle();
+}
+
 
 
 

@@ -3,21 +3,22 @@
 		<input class="add-to-do" type="text" placeholder="what to do?" autofocus
 		@keyup.enter="addTodo" v-model = "content" />
 		<ToDoitem v-for="(item,index) in todoData":key="index" :todo="item" @del="handleDeleteItem"
-		 ></ToDoitem>
-		 <ToDoinfo/>
+		></ToDoitem>
+		<ToDoinfo :total = "total" />
 	</div>
 </template>
 
 <script type="text/javascript">
 	import ToDoitem from '/src/components/MainToDo/coms/ToDoitem.vue'
-		let id = 0;
+	let id = 0;
 	import ToDoinfo from './coms/ToDoinfo.vue'
 	export default {
 		name:'MainToDo',
 		data(){
 			return{
 				todoData:[],
-				content:''
+				content:'',
+				total: 0
 			}
 			
 		},
@@ -41,6 +42,16 @@
 				// 但是，会导致删除后新增的元素和下标对不上从而删除失败
 				this.todoData.splice(
 					this.todoData.findIndex(item => item.id ===id),1)
+			}
+		},
+		watch:{
+			todoData: {
+				deep: true,
+				handler() {
+					this.total = this.todoData.filter(
+						item => item.completed == false
+						).length
+				}
 			}
 		},
 		components:{
