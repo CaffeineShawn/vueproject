@@ -2,9 +2,9 @@
 	<div class="main-to-do">
 		<input class="add-to-do" type="text" placeholder="what to do?" autofocus
 		@keyup.enter="addTodo" v-model = "content" />
-		<ToDoitem v-for="(item,index) in todoData":key="index" :todo="item" @del="handleDeleteItem"
+		<ToDoitem v-for="(item,index) in filterData":key="index" :todo="item" @del="handleDeleteItem"
 		></ToDoitem>
-		<ToDoinfo :total = "total" />
+		<ToDoinfo :total = "total"  @toggleState="handleToggleState" />
 	</div>
 </template>
 
@@ -18,7 +18,8 @@
 			return{
 				todoData:[],
 				content:'',
-				total: 0
+				total: 0,
+				filter: 'all'//当前显示状态为显示所有
 			}
 			
 		},
@@ -42,6 +43,9 @@
 				// 但是，会导致删除后新增的元素和下标对不上从而删除失败
 				this.todoData.splice(
 					this.todoData.findIndex(item => item.id ===id),1)
+			},
+			handleToggleState(state) {//记录子组件的显示需求 改变data 从而通过computed改变显示数组(computed里的东西可以直接当data用 关注return值即可)
+				this.filter = state
 			}
 		},
 		watch:{
@@ -54,10 +58,25 @@
 				}
 			}
 		},
+		computed: {//对filter进行处理
+			filterData() {
+				switch (this.filter) {
+					case 'all':
+					return this.todoData
+					break
+					case 'active':
+					return this.todoData.filter(item => item.completed == false)
+					break
+					case 'completed':
+					return this.todoData.filter(item => item.completed == true)
+					break
+				}
+			}
+		},
 		components:{
 			ToDoitem,
 			ToDoinfo
-		}
+		},
 	}
 
 

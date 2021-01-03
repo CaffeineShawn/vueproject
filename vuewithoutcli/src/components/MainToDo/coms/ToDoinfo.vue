@@ -2,7 +2,7 @@
 	<div class="ToDoinfo">
 		<span class="left">{{total}} item left</span>
 		<div class="tabs">
-			<a class="btn border" v-for="(item,index) in states">{{item}}</a>
+			<a class="btn border" v-for="(item,index) in states" @click="toggleState(item)">{{item}}</a>
 
 		</div>
 		<button class="btn info">Clear Completed</button>
@@ -18,6 +18,13 @@
 		data(){
 			return{
 				states:['all','active','completed'],
+				state: 'all'
+			}
+		},
+		methods: {
+			toggleState(state) {
+				this.state = state
+				this.$emit('toggleState', state)//告诉父组件我需要要什么
 			}
 		}
 	}
