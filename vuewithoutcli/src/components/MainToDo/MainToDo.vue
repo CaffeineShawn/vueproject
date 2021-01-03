@@ -4,7 +4,7 @@
 		@keyup.enter="addTodo" v-model = "content" />
 		<ToDoitem v-for="(item,index) in filterData":key="index" :todo="item" @del="handleDeleteItem"
 		></ToDoitem>
-		<ToDoinfo :total = "total"  @toggleState="handleToggleState" />
+		<ToDoinfo :total = "total"  @toggleState="handleToggleState" @deleteAll="deleteAll"/>
 	</div>
 </template>
 
@@ -46,6 +46,9 @@
 			},
 			handleToggleState(state) {//记录子组件的显示需求 改变data 从而通过computed改变显示数组(computed里的东西可以直接当data用 关注return值即可)
 				this.filter = state
+			},
+			deleteAll(){
+				this.todoData = []
 			}
 		},
 		watch:{

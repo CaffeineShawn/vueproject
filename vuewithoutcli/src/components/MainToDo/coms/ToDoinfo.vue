@@ -5,7 +5,7 @@
 			<a class="btn border" v-for="(item,index) in states" @click="toggleState(item)">{{item}}</a>
 
 		</div>
-		<button class="btn info">Clear Completed</button>
+		<button  @click="del" class="btn info">Clear Completed</button>
 	</div>
 </template>
 
@@ -25,6 +25,9 @@
 			toggleState(state) {
 				this.state = state
 				this.$emit('toggleState', state)//告诉父组件我需要要什么
+			},
+			del(){
+				this.$emit('deleteAll')
 			}
 		}
 	}
